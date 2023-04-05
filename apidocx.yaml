@@ -1,0 +1,142 @@
+                   ONLINE SHOPPING API DOCUMENTATION
+
+1. REGISTRATION
+post"/Customer" #Customer Registration
+post"/Seller"   #Seller Registraion
+
+request data-
+"email" : string 
+"name" : string
+"password" : string 
+
+response data-
+"email" : string 
+"name" :string
+{"message" : "created "},201 #success
+
+{"message" :"invalid input "},404 #failure
+
+2. LOGIN
+post"/login"
+
+request data-
+"email" : string
+"password" : string 
+
+response data-
+access token
+{"message" : "Logged in successfully"},200 #ok
+
+{"message" : "INVALID CREDENTIALS"},404
+
+3. SELLER
+
+post"/seller/seller_id/item"
+
+request data-
+"name" : string
+"price" : float
+"category" : string 
+
+response data-
+"name " : "string"
+"price" : "float"'
+"category" : "string"
+{"message" : "item created"},201
+
+{"message" : "invalid input"},404
+
+get"/seller/seller_id/item"
+response data-
+item[]
+
+delete"/seller/seller_id/item"
+response data-
+"message" : "success",201
+
+"message" : "not found",404
+
+get"/seller/seller_id/check_income"
+
+response data-
+"income ": integer 
+status code - 200, ok 
+
+status code 404,seller not found
+
+get"/seller/seller_id/order"
+response data-
+order list [],200
+
+{"message" :" seller not found "}
+
+4. CUSTOMER
+
+add item to cart-
+
+post"/customer/customer_id/item/item_id"
+response data:
+cart :
+
+
+delete item from cart-
+
+delete"/customer/customer_id/item/item_id"
+
+response data:
+"message" : " item deleted ",201
+
+"message" : "item not found",404
+
+
+view cart-
+
+get"/customer/customer_id/cart"
+
+response data -
+cart=>item list[],200
+
+"message" : :"not found "
+
+place order-
+
+post"/customer/customer_id/order/order_id"
+response data-
+order_id : integer,
+order_value : float,
+order_data  : date
+201
+
+"message" : "not found",404
+
+get order details-
+
+get"/customer/customer_id/order"
+
+response data-
+list of orders[]
+{message:"order list"},200
+
+{"message" : " not found "},404
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
